@@ -58,6 +58,7 @@ typedef void (^FTPopOverMenuDismissBlock)(void);
 @property (nonatomic, assign) CGFloat shadowRadius;
 @property (nonatomic, assign) CGFloat shadowOffsetX;
 @property (nonatomic, assign) CGFloat shadowOffsetY;
+@property (nonatomic, assign) CGFloat menuIconSize;// Default is 24.
 
 /**
  *  defaultConfiguration

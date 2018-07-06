@@ -14,6 +14,7 @@
 #define FTDefaultMenuIconMargin             6.f
 #define FTDefaultMenuCornerRadius           5.f
 #define FTDefaultAnimationDuration          0.2
+#define FTDefaultMenuIconSize               24.f
 // unchangeable, change them at your own risk
 #define KSCREEN_WIDTH                       [[UIScreen mainScreen] bounds].size.width
 #define KSCREEN_HEIGHT                      [[UIScreen mainScreen] bounds].size.height
@@ -25,7 +26,6 @@
 #define FTDefaultSeparatorColor             [UIColor grayColor]
 #define FTDefaultMenuFont                   [UIFont systemFontOfSize:14.f]
 #define FTDefaultMenuWidth                  120.f
-#define FTDefaultMenuIconSize               24.f
 #define FTDefaultMenuRowHeight              40.f
 #define FTDefaultMenuBorderWidth            0.8
 #define FTDefaultMenuArrowWidth             8.f
@@ -111,6 +111,7 @@ typedef NS_ENUM(NSUInteger, FTPopOverMenuArrowDirection) {
         self.shadowOpacity = FTDefaultShadowOpacity;
         self.shadowOffsetX = FTDefaultShadowOffsetX;
         self.shadowOffsetY = FTDefaultShadowOffsetY;
+        self.menuIconSize = FTDefaultMenuIconSize;
     }
     return self;
 }
@@ -162,8 +163,8 @@ typedef NS_ENUM(NSUInteger, FTPopOverMenuArrowDirection) {
 - (void)setupWithMenuName:(NSString *)menuName menuImage:(id)menuImage selected:(BOOL)selected {
     FTPopOverMenuConfiguration *configuration = [FTPopOverMenuConfiguration defaultConfiguration];
 
-    CGFloat margin = (configuration.menuRowHeight - FTDefaultMenuIconSize)/2.f;
-    CGRect iconImageRect = CGRectMake(configuration.menuIconMargin, margin, FTDefaultMenuIconSize, FTDefaultMenuIconSize);
+    CGFloat margin = (configuration.menuRowHeight - configuration.menuIconSize)/2.f;
+    CGRect iconImageRect = CGRectMake(configuration.menuIconMargin, margin, configuration.menuIconSize, configuration.menuIconSize);
     CGFloat menuNameX = iconImageRect.origin.x + iconImageRect.size.width + configuration.menuTextMargin;
     CGRect menuNameRect = CGRectMake(menuNameX, 0, configuration.menuWidth - menuNameX - configuration.menuTextMargin, configuration.menuRowHeight);
 
